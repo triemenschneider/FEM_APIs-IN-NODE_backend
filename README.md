@@ -1,4 +1,4 @@
-<img src="https://btholt.github.io/intro-to-web-dev-v2/static/FrontendMastersLogo-f72cae0c73fecbb6beecea606d8fabd3-a3d33.png" style="max-width: 350px; display: block; margin: 20px auto;" />
+<img src="https://btholt.github.io/intro-to-web-dev-v2/static/FrontendMastersLogo-f72cae0c73fecbb6beecea606d8fabd3-a3d33.png" style="width: 350px; display: block; margin: 20px auto;" />
 
 This repository contains the outcome of my applied learning of [API Design in Node.js (using Express & Mongo)](https://frontendmasters.com/courses/api-design-nodejs/) on [Frontendmasters.com](https://frontendmasters.com).
 
