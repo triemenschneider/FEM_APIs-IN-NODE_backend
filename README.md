@@ -52,3 +52,5 @@ The data-structure for a member looks as follows.
   hobbies: ['reading', 'drinking beer']
 }
 ```
+
+The **frontend**, which I built seperately, can be found here: [https://github.com/triemenschneider/FEM_APIs-IN-NODE_frontend](https://github.com/triemenschneider/FEM_APIs-IN-NODE_frontend)
