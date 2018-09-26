@@ -3,12 +3,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var _ = require('lodash');
 
-// ich glaub' das Ding brauche ich nicht, das der client woanders läuft..
-// app.use(express.static('client'));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 var members = [
   {
     name: 'Walter Müller',
@@ -20,6 +14,24 @@ var members = [
   }
 ];
 var id = 1;
+
+// ich glaub' das Ding brauche ich nicht, das der client woanders läuft..
+// app.use(express.static('client'));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.param('id', function(req, res, next, id) {
+  var member = _.find(members, { id: id });
+
+  if (member) {
+    req.member = member;
+    next();
+  } else {
+    // in real life one would send a different status code
+    res.send();
+  }
+});
 
 app.get('/members', function(req, res) {
   res.json(members);
