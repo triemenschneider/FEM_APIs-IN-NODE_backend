@@ -38,8 +38,8 @@ app.get('/members', function(req, res) {
 });
 
 app.get('/members/:id', function(req, res) {
-  var member = _.find(members, { id: req.params.id });
-  res.json(member || {});
+  //var member = _.find(members, { id: req.params.id });
+  res.json(req.member || {});
 });
 
 app.post('/members', function(req, res) {
