@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.param('id', function(req, res, next, id) {
+
   var member = _.find(members, { id: id });
 
   if (member) {
@@ -31,6 +32,7 @@ app.param('id', function(req, res, next, id) {
     // in real life one would send a different status code
     res.send();
   }
+  
 });
 
 app.get('/members', function(req, res) {
@@ -77,6 +79,12 @@ app.delete('/members/:id', function(req, res) {
     res.json(deletedMember);
   }
 });
+
+app.use(function(err, req, res, next) {
+  if (err) {
+    res.status(500).send(err);
+  }
+})
 
 app.listen(3000);
 
