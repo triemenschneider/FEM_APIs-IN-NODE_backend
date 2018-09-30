@@ -21,6 +21,14 @@ var id = 1;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+let updateID = function(req, res, next) {
+  if (!req.body.id) {
+    id++;
+    req.body.id = id + '';
+  }
+  next();
+}
+
 app.param('id', function(req, res, next, id) {
 
   var member = _.find(members, { id: id });
@@ -44,10 +52,11 @@ app.get('/members/:id', function(req, res) {
   res.json(req.member || {});
 });
 
-app.post('/members', function(req, res) {
+app.post('/members', updateID, function(req, res) {
   var member = req.body;
-  id++;
-  member.id = id + '';
+  // das macht jetzt die middleware-function updateID für mich..
+  // id++;
+  // member.id = id + '';
 
   members.push(member);
 
